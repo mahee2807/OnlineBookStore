@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4b9a1f07-8dde-42e4-82d0-1fca380d088f" name="Changes" comment="another push">
-      <change afterPath="$PROJECT_DIR$/book-details.html" afterDir="false" />
+    <list default="true" id="4b9a1f07-8dde-42e4-82d0-1fca380d088f" name="Changes" comment="book detail added">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book.html" beforeDir="false" afterPath="$PROJECT_DIR$/book.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -109,7 +110,15 @@
       <option name="project" value="LOCAL" />
       <updated>1790945416694</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="book detail added">
+      <option name="closed" value="true" />
+      <created>1790946491581</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1790946491581</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,6 +128,7 @@
     <MESSAGE value="first commit for this project" />
     <MESSAGE value="book and css added" />
     <MESSAGE value="another push" />
-    <option name="LAST_COMMIT_MESSAGE" value="another push" />
+    <MESSAGE value="book detail added" />
+    <option name="LAST_COMMIT_MESSAGE" value="book detail added" />
   </component>
 </project>

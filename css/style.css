@@ -173,3 +173,22 @@
 .buy-now:hover {
     background-color: #555;
 }
+/* View Details Button */
+
+.details-btn {
+    display: inline-block;
+
+    padding: 10px 18px;
+
+    background-color: #8b5e3c;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 5px;
+}
+
+.details-btn:hover {
+    background-color: #70482f;
+}
