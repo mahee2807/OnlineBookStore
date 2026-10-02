@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4b9a1f07-8dde-42e4-82d0-1fca380d088f" name="Changes" comment="first commit for this project">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="4b9a1f07-8dde-42e4-82d0-1fca380d088f" name="Changes" comment="another push">
+      <change afterPath="$PROJECT_DIR$/book-details.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,6 +46,7 @@
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
@@ -92,7 +93,23 @@
       <option name="project" value="LOCAL" />
       <updated>1790940987869</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="book and css added">
+      <option name="closed" value="true" />
+      <created>1790944958205</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1790944958205</updated>
+    </task>
+    <task id="LOCAL-00004" summary="another push">
+      <option name="closed" value="true" />
+      <created>1790945416694</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1790945416694</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,6 +117,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit for this project" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit for this project" />
+    <MESSAGE value="book and css added" />
+    <MESSAGE value="another push" />
+    <option name="LAST_COMMIT_MESSAGE" value="another push" />
   </component>
 </project>
