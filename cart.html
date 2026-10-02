@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shopping Cart - Online Book Store</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/cart.js"></script>
+
+</head>
+
+
+<body>
+
+
+<!-- Navigation Bar -->
+
+<header>
+
+    <div class="logo">
+        📚 Online Book Store
+    </div>
+
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="book.html">
+            Books
+        </a>
+
+        <a href="#">
+            Categories
+        </a>
+
+        <a href="cart.html">
+            Cart
+        </a>
+
+        <a href="#">
+            About
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- Cart Section -->
+
+<section class="cart-page">
+
+
+    <h1>
+        Shopping Cart
+    </h1>
+
+
+    <p class="cart-intro">
+        Review the books you have selected.
+    </p>
+
+
+
+    <!-- Cart Item -->
+
+    <div class="cart-container">
+
+
+        <div class="cart-item">
+
+
+            <!-- Book Image -->
+
+            <div
+                    class="cart-book-image"
+                    id="cart-book-image">
+
+                📖
+
+            </div>
+
+
+            <!-- Book Information -->
+
+            <div class="cart-book-info">
+
+
+                <h3 id="cart-book-name">
+
+                    The Great Adventure
+
+                </h3>
+
+
+                <p id="cart-book-author">
+
+                    John Smith
+
+                </p>
+
+
+                <p
+                        class="cart-price"
+                        id="cart-book-price">
+
+                    ₹399
+
+                </p>
+
+
+            </div>
+
+
+            <!-- Quantity -->
+
+            <div class="quantity">
+
+                <label>
+                    Quantity
+                </label>
+
+
+                <input
+                        type="number"
+                        id="quantity"
+                        value="1"
+                        min="1"
+                        onchange="updateTotal()">
+
+            </div>
+
+
+            <!-- Remove Button -->
+
+            <button
+                    class="remove-btn"
+                    onclick="removeFromCart()">
+
+                Remove
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- Cart Summary -->
+
+    <div class="cart-summary">
+
+
+        <h2>
+            Order Summary
+        </h2>
+
+
+        <p>
+
+            Subtotal:
+
+            <strong id="cart-total">
+                ₹399
+            </strong>
+
+        </p>
+
+
+        <p>
+
+            Delivery:
+
+            <strong>
+                Free
+            </strong>
+
+        </p>
+
+
+        <hr>
+
+
+        <h3>
+
+            Total:
+
+            <span id="final-total">
+                ₹399
+            </span>
+
+        </h3>
+
+
+        <!-- Proceed to Checkout -->
+
+        <a
+                href="checkout.html"
+                class="checkout-btn">
+
+            Proceed to Checkout
+
+        </a>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- Footer -->
+
+<footer>
+
+
+    <h3>
+        Online Book Store
+    </h3>
+
+
+    <p>
+        Your place to discover and purchase books online.
+    </p>
+
+
+    <p>
+        © 2026 Online Book Store
+    </p>
+
+
+</footer>
+
+
+</body>
+
+</html>
