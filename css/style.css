@@ -1,0 +1,71 @@
+/* Books Page */
+
+.books-page {
+    padding: 60px 80px;
+
+    text-align: center;
+}
+
+.books-page h1 {
+    font-size: 40px;
+
+    margin-bottom: 15px;
+}
+
+.books-intro {
+    font-size: 18px;
+
+    color: #666;
+
+    margin-bottom: 30px;
+}
+
+
+/* Book Search */
+
+.book-search {
+    display: flex;
+
+    justify-content: center;
+
+    margin-bottom: 50px;
+}
+
+.book-search input {
+    width: 350px;
+
+    padding: 12px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 5px 0 0 5px;
+
+    font-size: 16px;
+}
+
+.book-search button {
+    padding: 12px 20px;
+
+    border: none;
+
+    background-color: #8b5e3c;
+
+    color: white;
+
+    border-radius: 0 5px 5px 0;
+
+    cursor: pointer;
+}
+
+
+/* All Books */
+
+.all-books {
+    display: grid;
+
+    grid-template-columns: repeat(3, 250px);
+
+    justify-content: center;
+
+    gap: 35px;
+}
