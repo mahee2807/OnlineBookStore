@@ -1,117 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Online Book Store</title>
-
-    <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<!-- Navigation Bar -->
 <header>
-
-    <div class="logo">
-        📚 Online Book Store
-    </div>
+    <div class="logo">📚 Online Book Store</div>
 
     <nav>
         <a href="index.html">Home</a>
-        <a href="books.html">Books</a>
+        <a href="book.html">Books</a>
         <a href="#">Categories</a>
+        <a href="cart.html">Cart 🛒</a>
         <a href="#">About</a>
-        <a href="#">Contact</a>
     </nav>
-
 </header>
 
 
-<!-- Hero Section -->
 <section class="hero">
 
-    <div class="hero-content">
+    <div>
+        <p class="small-title">WELCOME TO OUR BOOKSTORE</p>
 
-        <h1>Discover Your Next Great Book</h1>
+        <h1>
+            Discover Stories<br>
+            That <span>Inspire You</span>
+        </h1>
 
         <p>
-            Explore our collection of books and find
-            your next favorite story.
+            Explore amazing books and find your next
+            favorite story all in one place.
         </p>
 
-        <a href="books.html" class="btn">
-            Browse Books
-        </a>
+        <a href="book.html" class="btn">Browse Books</a>
+        <a href="#featured" class="btn outline">Explore Collection</a>
+    </div>
 
+    <div class="hero-book">
+        📖
     </div>
 
 </section>
 
 
-<!-- Featured Books -->
-<section class="featured">
+<section class="search">
+
+    <h2>Find Your Next Book</h2>
+
+    <p>Search from our collection of books</p>
+
+    <input type="text" placeholder="Search for books, authors...">
+    <button>🔍 Search</button>
+
+</section>
+
+
+<section class="featured" id="featured">
+
+    <p class="small-title">OUR COLLECTION</p>
 
     <h2>Featured Books</h2>
 
-    <div class="book-container">
+    <div class="books">
 
-        <div class="book-card">
-
-            <div class="book-image">
-                📖
-            </div>
-
+        <div class="card">
+            <div class="book-img">📖</div>
             <h3>The Great Adventure</h3>
-
             <p>John Smith</p>
-
-            <h4>₹399</h4>
-
-            <button>
-                View Book
-            </button>
-
+            <b>₹399</b>
+            <br><br>
+            <a href="book-details.html" class="small-btn">View</a>
         </div>
 
-
-        <div class="book-card">
-
-            <div class="book-image">
-                📕
-            </div>
-
+        <div class="card">
+            <div class="book-img">📕</div>
             <h3>Learn Programming</h3>
-
             <p>Robert Brown</p>
-
-            <h4>₹499</h4>
-
-            <button>
-                View Book
-            </button>
-
+            <b>₹499</b>
+            <br><br>
+            <a href="book-details.html" class="small-btn">View</a>
         </div>
 
-
-        <div class="book-card">
-
-            <div class="book-image">
-                📗
-            </div>
-
+        <div class="card">
+            <div class="book-img">📗</div>
             <h3>World of Science</h3>
-
             <p>Sarah Wilson</p>
-
-            <h4>₹349</h4>
-
-            <button>
-                View Book
-            </button>
-
+            <b>₹349</b>
+            <br><br>
+            <a href="book-details.html" class="small-btn">View</a>
         </div>
 
     </div>
@@ -119,88 +101,52 @@
 </section>
 
 
-<!-- Categories Section -->
 <section class="categories">
 
-    <h2>Browse Categories</h2>
+    <p class="small-title">EXPLORE</p>
 
-    <div class="category-container">
+    <h2>Browse By Category</h2>
 
-        <div class="category">
-            📚 Fiction
-        </div>
+    <div class="category-box">
 
-        <div class="category">
-            💻 Technology
-        </div>
+        <div>📚<br><b>Fiction</b><br><small>120+ Books</small></div>
 
-        <div class="category">
-            🔬 Science
-        </div>
+        <div>💻<br><b>Technology</b><br><small>85+ Books</small></div>
 
-        <div class="category">
-            🧠 Self Help
-        </div>
+        <div>🔬<br><b>Science</b><br><small>70+ Books</small></div>
 
-        <div class="category">
-            🕵️ Mystery
-        </div>
+        <div>🧠<br><b>Self Help</b><br><small>60+ Books</small></div>
+
+        <div>🕵️<br><b>Mystery</b><br><small>50+ Books</small></div>
 
     </div>
 
 </section>
 
 
-<!-- Why Choose Us -->
-<section class="why-us">
+<section class="stats">
 
-    <h2>Why Choose Us?</h2>
-
-    <div class="features">
-
-        <div>
-            <h3>📚 Wide Collection</h3>
-
-            <p>
-                Find books from different categories.
-            </p>
-        </div>
-
-
-        <div>
-            <h3>🛒 Easy Shopping</h3>
-
-            <p>
-                Browse and add your favorite books to cart.
-            </p>
-        </div>
-
-
-        <div>
-            <h3>🔒 Secure Ordering</h3>
-
-            <p>
-                Simple and secure online ordering.
-            </p>
-        </div>
-
-    </div>
+    <div><b>500+</b><br>Books</div>
+    <div><b>100+</b><br>Authors</div>
+    <div><b>20+</b><br>Categories</div>
+    <div><b>1000+</b><br>Readers</div>
 
 </section>
 
 
-<!-- Footer -->
 <footer>
 
-    <h3>Online Book Store</h3>
+    <h3>📚 Online Book Store</h3>
+
+    <p>Your place to discover and purchase books online.</p>
 
     <p>
-        Your place to discover and purchase books online.
+        <a href="index.html">Home</a> |
+        <a href="book.html">Books</a> |
+        <a href="cart.html">Cart</a>
     </p>
 
-    <p>
-        © 2026 Online Book Store
-    </p>
+    <small>© 2026 Online Book Store</small>
 
 </footer>
 

@@ -2,17 +2,21 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Book Details - Online Book Store</title>
 
     <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/cart.js"></script>
+
 </head>
 
 <body>
 
-<!-- Navigation Bar -->
+
 <header>
 
     <div class="logo">
@@ -20,63 +24,108 @@
     </div>
 
     <nav>
-        <a href="index.html">Home</a>
-        <a href="books.html">Books</a>
-        <a href="#">Categories</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="book.html">
+            Books
+        </a>
+
+        <a href="index.html#categories">
+            Categories
+        </a>
+
+        <a href="cart.html">
+            Cart 🛒
+        </a>
+
+        <a href="index.html#about">
+            About
+        </a>
+
     </nav>
 
 </header>
 
 
-<!-- Book Details -->
 <section class="book-details">
 
-    <div class="details-image">
+
+    <div class="details-image" id="details-image">
         📖
     </div>
 
 
     <div class="details-content">
 
-        <h1>The Great Adventure</h1>
+        <p class="small-title">
+            BOOK DETAILS
+        </p>
 
-        <p class="author">
+        <h1 id="details-name">
+            The Great Adventure
+        </h1>
+
+        <p id="details-author">
             By John Smith
         </p>
 
-        <h2>₹399</h2>
+        <h2 id="details-price">
+            ₹399
+        </h2>
 
-        <p>
+
+        <p id="details-description">
+
             This exciting book takes readers on an amazing
             adventure filled with interesting characters,
             challenges and memorable experiences.
-        </p>
 
-        <p>
-            It is suitable for readers who enjoy adventure
-            stories and exploring new worlds.
         </p>
 
 
         <div class="book-info">
 
-            <p><strong>Category:</strong> Fiction</p>
+            <p>
+                <strong>Category:</strong>
+                <span id="details-category">
+                    Fiction
+                </span>
+            </p>
 
-            <p><strong>Language:</strong> English</p>
+            <p>
+                <strong>Language:</strong>
+                English
+            </p>
 
-            <p><strong>Availability:</strong> In Stock</p>
+            <p>
+                <strong>Availability:</strong>
+                In Stock
+            </p>
 
         </div>
 
 
-        <button class="add-cart">
+        <br>
+
+
+        <button
+                class="add-cart"
+                onclick="addToCart()">
+
             Add to Cart
+
         </button>
 
-        <button class="buy-now">
+
+        <button
+                class="buy-now"
+                onclick="buyNow()">
+
             Buy Now
+
         </button>
 
     </div>
@@ -84,20 +133,188 @@
 </section>
 
 
-<!-- Footer -->
 <footer>
 
-    <h3>Online Book Store</h3>
+    <h3>
+        📚 Online Book Store
+    </h3>
 
     <p>
         Your place to discover and purchase books online.
     </p>
 
     <p>
-        © 2026 Online Book Store
+        <a href="index.html">Home</a> |
+        <a href="book.html">Books</a> |
+        <a href="cart.html">Cart</a>
     </p>
+
+    <small>
+        © 2026 Online Book Store
+    </small>
 
 </footer>
 
+
+<script>
+
+    /*
+       Read the book name from the URL.
+       Example:
+       book-details.html?book=programming
+    */
+
+    let params = new URLSearchParams(window.location.search);
+
+    let bookType = params.get("book");
+
+
+    let books = {
+
+        adventure: {
+            name: "The Great Adventure",
+            author: "John Smith",
+            price: 399,
+            image: "📖",
+            category: "Fiction",
+            description:
+                "This exciting book takes readers on an amazing adventure filled with interesting characters, challenges and memorable experiences."
+        },
+
+        programming: {
+            name: "Learn Programming",
+            author: "Robert Brown",
+            price: 499,
+            image: "📕",
+            category: "Technology",
+            description:
+                "A beginner-friendly book that introduces programming concepts and helps readers understand the basics of coding."
+        },
+
+        science: {
+            name: "World of Science",
+            author: "Sarah Wilson",
+            price: 349,
+            image: "📗",
+            category: "Science",
+            description:
+                "Explore interesting scientific concepts and discover how science explains the world around us."
+        },
+
+        mystery: {
+            name: "Mystery House",
+            author: "David Miller",
+            price: 299,
+            image: "📘",
+            category: "Mystery",
+            description:
+                "A fascinating mystery story filled with clues, unexpected events and interesting characters."
+        },
+
+        success: {
+            name: "Success Mindset",
+            author: "Emily Clark",
+            price: 449,
+            image: "📙",
+            category: "Self Help",
+            description:
+                "Learn simple ideas about motivation, positive thinking and developing a successful mindset."
+        },
+
+        technology: {
+            name: "Modern Technology",
+            author: "Michael Lee",
+            price: 599,
+            image: "📓",
+            category: "Technology",
+            description:
+                "Understand modern technologies and how they are changing the way people work and communicate."
+        }
+
+    };
+
+
+    if (bookType && books[bookType]) {
+
+        let book = books[bookType];
+
+        document.getElementById("details-name").innerText =
+            book.name;
+
+        document.getElementById("details-author").innerText =
+            "By " + book.author;
+
+        document.getElementById("details-price").innerText =
+            "₹" + book.price;
+
+        document.getElementById("details-image").innerText =
+            book.image;
+
+        document.getElementById("details-category").innerText =
+            book.category;
+
+        document.getElementById("details-description").innerText =
+            book.description;
+
+        /*
+           Save selected book temporarily.
+           cart.js uses this when Add to Cart is clicked.
+        */
+
+        window.selectedBook = book;
+
+    }
+
+
+    function addToCart() {
+
+        if (!window.selectedBook) {
+
+            alert("Please select a book.");
+
+            return;
+
+        }
+
+
+        let book = {
+
+            name: window.selectedBook.name,
+
+            author: window.selectedBook.author,
+
+            price: window.selectedBook.price,
+
+            image: window.selectedBook.image,
+
+            quantity: 1
+
+        };
+
+
+        localStorage.setItem(
+            "cartBook",
+            JSON.stringify(book)
+        );
+
+
+        alert("Book added to cart!");
+
+
+        window.location.href = "cart.html";
+
+    }
+
+
+    function buyNow() {
+
+        addToCart();
+
+    }
+
+</script>
+
+
 </body>
+
 </html>

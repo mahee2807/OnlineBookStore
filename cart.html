@@ -4,7 +4,6 @@
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Shopping Cart - Online Book Store</title>
@@ -15,18 +14,14 @@
 
 </head>
 
-
 <body>
 
-
-<!-- Navigation Bar -->
 
 <header>
 
     <div class="logo">
         📚 Online Book Store
     </div>
-
 
     <nav>
 
@@ -38,15 +33,15 @@
             Books
         </a>
 
-        <a href="#">
+        <a href="index.html#categories">
             Categories
         </a>
 
         <a href="cart.html">
-            Cart
+            Cart 🛒
         </a>
 
-        <a href="#">
+        <a href="index.html#about">
             About
         </a>
 
@@ -55,32 +50,21 @@
 </header>
 
 
-
-<!-- Cart Section -->
-
 <section class="cart-page">
-
 
     <h1>
         Shopping Cart
     </h1>
 
-
-    <p class="cart-intro">
+    <p>
         Review the books you have selected.
     </p>
 
 
-
-    <!-- Cart Item -->
-
     <div class="cart-container">
 
+        <div class="cart-item" id="cart-item">
 
-        <div class="cart-item">
-
-
-            <!-- Book Image -->
 
             <div
                     class="cart-book-image"
@@ -91,24 +75,15 @@
             </div>
 
 
-            <!-- Book Information -->
-
             <div class="cart-book-info">
 
-
                 <h3 id="cart-book-name">
-
                     The Great Adventure
-
                 </h3>
 
-
                 <p id="cart-book-author">
-
                     John Smith
-
                 </p>
-
 
                 <p
                         class="cart-price"
@@ -118,18 +93,14 @@
 
                 </p>
 
-
             </div>
 
-
-            <!-- Quantity -->
 
             <div class="quantity">
 
                 <label>
                     Quantity
                 </label>
-
 
                 <input
                         type="number"
@@ -140,8 +111,6 @@
 
             </div>
 
-
-            <!-- Remove Button -->
 
             <button
                     class="remove-btn"
@@ -154,15 +123,10 @@
 
         </div>
 
-
     </div>
 
 
-
-    <!-- Cart Summary -->
-
     <div class="cart-summary">
-
 
         <h2>
             Order Summary
@@ -205,8 +169,6 @@
         </h3>
 
 
-        <!-- Proceed to Checkout -->
-
         <a
                 href="checkout.html"
                 class="checkout-btn">
@@ -215,33 +177,31 @@
 
         </a>
 
-
     </div>
 
 
 </section>
 
 
-
-<!-- Footer -->
-
 <footer>
 
-
     <h3>
-        Online Book Store
+        📚 Online Book Store
     </h3>
-
 
     <p>
         Your place to discover and purchase books online.
     </p>
 
-
     <p>
-        © 2026 Online Book Store
+        <a href="index.html">Home</a> |
+        <a href="book.html">Books</a> |
+        <a href="cart.html">Cart</a>
     </p>
 
+    <small>
+        © 2026 Online Book Store
+    </small>
 
 </footer>
 

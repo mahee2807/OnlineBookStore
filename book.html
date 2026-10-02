@@ -4,20 +4,17 @@
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Book Details - Online Book Store</title>
+    <title>Books - Online Book Store</title>
 
     <link rel="stylesheet" href="css/style.css">
-
-    <script src="js/cart.js"></script>
 
 </head>
 
 <body>
 
-<!-- Navigation Bar -->
+
 <header>
 
     <div class="logo">
@@ -25,90 +22,275 @@
     </div>
 
     <nav>
-        <a href="index.html">Home</a>
-        <a href="book.html">Books</a>
-        <a href="#">Categories</a>
-        <a href="cart.html">Cart</a>
-        <a href="#">About</a>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="book.html">
+            Books
+        </a>
+
+        <a href="index.html#categories">
+            Categories
+        </a>
+
+        <a href="cart.html">
+            Cart 🛒
+        </a>
+
+        <a href="index.html#about">
+            About
+        </a>
+
     </nav>
 
 </header>
 
 
-<!-- Book Details -->
-<section class="book-details">
+<section class="books-page">
 
-    <div class="details-image">
-        📖
-    </div>
+    <p class="small-title">
+        OUR COLLECTION
+    </p>
 
+    <h1>
+        All Books
+    </h1>
 
-    <div class="details-content">
-
-        <h1>The Great Adventure</h1>
-
-        <p class="author">
-            By John Smith
-        </p>
-
-        <h2>₹399</h2>
-
-        <p>
-            This exciting book takes readers on an amazing
-            adventure filled with interesting characters,
-            challenges and memorable experiences.
-        </p>
-
-        <p>
-            It is suitable for readers who enjoy adventure
-            stories and exploring new worlds.
-        </p>
+    <p>
+        Explore our collection of books.
+    </p>
 
 
-        <div class="book-info">
+    <div class="all-books">
+
+
+        <!-- BOOK 1 -->
+
+        <div class="card">
+
+            <div class="book-img">
+                📖
+            </div>
+
+            <h3>
+                The Great Adventure
+            </h3>
 
             <p>
-                <strong>Category:</strong> Fiction
+                John Smith
             </p>
 
-            <p>
-                <strong>Language:</strong> English
-            </p>
+            <b>
+                ₹399
+            </b>
 
-            <p>
-                <strong>Availability:</strong> In Stock
-            </p>
+            <br><br>
+
+            <a
+                    href="book-details.html?book=adventure"
+                    class="small-btn">
+
+                View Details
+
+            </a>
 
         </div>
 
 
-        <button class="add-cart" onclick="addToCart()">
-            Add to Cart
-        </button>
+        <!-- BOOK 2 -->
 
-        <button class="buy-now">
-            Buy Now
-        </button>
+        <div class="card">
+
+            <div class="book-img">
+                📕
+            </div>
+
+            <h3>
+                Learn Programming
+            </h3>
+
+            <p>
+                Robert Brown
+            </p>
+
+            <b>
+                ₹499
+            </b>
+
+            <br><br>
+
+            <a
+                    href="book-details.html?book=programming"
+                    class="small-btn">
+
+                View Details
+
+            </a>
+
+        </div>
+
+
+        <!-- BOOK 3 -->
+
+        <div class="card">
+
+            <div class="book-img">
+                📗
+            </div>
+
+            <h3>
+                World of Science
+            </h3>
+
+            <p>
+                Sarah Wilson
+            </p>
+
+            <b>
+                ₹349
+            </b>
+
+            <br><br>
+
+            <a
+                    href="book-details.html?book=science"
+                    class="small-btn">
+
+                View Details
+
+            </a>
+
+        </div>
+
+
+        <!-- BOOK 4 -->
+
+        <div class="card">
+
+            <div class="book-img">
+                📘
+            </div>
+
+            <h3>
+                Mystery House
+            </h3>
+
+            <p>
+                David Miller
+            </p>
+
+            <b>
+                ₹299
+            </b>
+
+            <br><br>
+
+            <a
+                    href="book-details.html?book=mystery"
+                    class="small-btn">
+
+                View Details
+
+            </a>
+
+        </div>
+
+
+        <!-- BOOK 5 -->
+
+        <div class="card">
+
+            <div class="book-img">
+                📙
+            </div>
+
+            <h3>
+                Success Mindset
+            </h3>
+
+            <p>
+                Emily Clark
+            </p>
+
+            <b>
+                ₹449
+            </b>
+
+            <br><br>
+
+            <a
+                    href="book-details.html?book=success"
+                    class="small-btn">
+
+                View Details
+
+            </a>
+
+        </div>
+
+
+        <!-- BOOK 6 -->
+
+        <div class="card">
+
+            <div class="book-img">
+                📓
+            </div>
+
+            <h3>
+                Modern Technology
+            </h3>
+
+            <p>
+                Michael Lee
+            </p>
+
+            <b>
+                ₹599
+            </b>
+
+            <br><br>
+
+            <a
+                    href="book-details.html?book=technology"
+                    class="small-btn">
+
+                View Details
+
+            </a>
+
+        </div>
 
     </div>
 
 </section>
 
 
-<!-- Footer -->
 <footer>
 
-    <h3>Online Book Store</h3>
+    <h3>
+        📚 Online Book Store
+    </h3>
 
     <p>
         Your place to discover and purchase books online.
     </p>
 
     <p>
-        © 2026 Online Book Store
+        <a href="index.html">Home</a> |
+        <a href="book.html">Books</a> |
+        <a href="cart.html">Cart</a>
     </p>
+
+    <small>
+        © 2026 Online Book Store
+    </small>
 
 </footer>
 
+
 </body>
+
 </html>

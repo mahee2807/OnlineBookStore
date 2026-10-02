@@ -11,6 +11,8 @@
 
     <link rel="stylesheet" href="css/style.css">
 
+    <script src="js/cart.js"></script>
+
 </head>
 
 
@@ -82,7 +84,7 @@
             </h2>
 
 
-            <form>
+            <form id="checkout-form">
 
 
                 <label for="name">
@@ -149,6 +151,15 @@
                         id="pincode"
                         placeholder="Enter your pincode"
                         required>
+
+
+                <button
+                        type="submit"
+                        class="place-order-btn">
+
+                    Place Order
+
+                </button>
 
 
             </form>
@@ -225,15 +236,6 @@
             </div>
 
 
-            <button
-                    type="button"
-                    class="place-order-btn">
-
-                Place Order
-
-            </button>
-
-
         </div>
 
 
@@ -247,7 +249,6 @@
 <!-- Footer -->
 
 <footer>
-
 
     <h3>
         Online Book Store
@@ -264,7 +265,28 @@
     </p>
 
 
+    <p>
+        © 2026 Online Book Store
+    </p>
+
 </footer>
+
+
+<script>
+
+    document.getElementById("checkout-form").addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        localStorage.removeItem("cartBook");
+
+        alert("Order placed successfully!");
+
+        window.location.href = "index.html";
+
+    });
+
+</script>
 
 
 </body>
