@@ -1,25 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Checkout - Online Book Store</title>
 
     <link rel="stylesheet" href="css/style.css">
 
-    <script src="js/cart.js"></script>
-
 </head>
 
-
 <body>
-
-
-<!-- Navigation Bar -->
 
 <header>
 
@@ -27,243 +19,74 @@
         📚 Online Book Store
     </div>
 
-
     <nav>
-
-        <a href="index.html">
-            Home
-        </a>
-
-        <a href="book.html">
-            Books
-        </a>
-
-        <a href="#">
-            Categories
-        </a>
-
-        <a href="cart.html">
-            Cart
-        </a>
-
-        <a href="#">
-            About
-        </a>
-
+        <a href="index.html">Home</a>
+        <a href="php/book.php">Books</a>
+        <a href="cart.html">Cart 🛒</a>
     </nav>
 
 </header>
 
 
-
-<!-- Checkout Section -->
-
 <section class="checkout-page">
 
+    <h1>Checkout</h1>
 
-    <h1>
-        Checkout
-    </h1>
+    <p>Enter your details to complete your order.</p>
 
 
-    <p class="checkout-intro">
-        Enter your details to complete your order.
-    </p>
+    <div class="checkout-box">
 
+        <h2>Customer Information</h2>
 
+        <form onsubmit="placeOrder(event)">
 
-    <div class="checkout-container">
+            <label>Full Name</label>
+            <input type="text" id="name" required>
 
 
-        <!-- Customer Details -->
+            <label>Email</label>
+            <input type="email" id="email" required>
 
-        <div class="customer-details">
 
-            <h2>
-                Customer Information
-            </h2>
+            <label>Phone Number</label>
+            <input type="text" id="phone" required>
 
 
-            <form id="checkout-form">
+            <label>Address</label>
+            <textarea id="address" required></textarea>
 
 
-                <label for="name">
-                    Full Name
-                </label>
+            <label>City</label>
+            <input type="text" id="city" required>
 
-                <input
-                        type="text"
-                        id="name"
-                        placeholder="Enter your full name"
-                        required>
 
+            <label>Pincode</label>
+            <input type="text" id="pincode" required>
 
-                <label for="email">
-                    Email
-                </label>
 
-                <input
-                        type="email"
-                        id="email"
-                        placeholder="Enter your email"
-                        required>
+            <h2>Order Summary</h2>
 
+            <div id="order-details"></div>
 
-                <label for="phone">
-                    Phone Number
-                </label>
+            <button type="submit" class="checkout-btn">
+                Place Order
+            </button>
 
-                <input
-                        type="tel"
-                        id="phone"
-                        placeholder="Enter your phone number"
-                        required>
-
-
-                <label for="address">
-                    Address
-                </label>
-
-                <textarea
-                        id="address"
-                        rows="5"
-                        placeholder="Enter your delivery address"
-                        required></textarea>
-
-
-                <label for="city">
-                    City
-                </label>
-
-                <input
-                        type="text"
-                        id="city"
-                        placeholder="Enter your city"
-                        required>
-
-
-                <label for="pincode">
-                    Pincode
-                </label>
-
-                <input
-                        type="text"
-                        id="pincode"
-                        placeholder="Enter your pincode"
-                        required>
-
-
-                <button
-                        type="submit"
-                        class="place-order-btn">
-
-                    Place Order
-
-                </button>
-
-
-            </form>
-
-        </div>
-
-
-
-        <!-- Order Summary -->
-
-        <div class="checkout-summary">
-
-
-            <h2>
-                Order Summary
-            </h2>
-
-
-            <div class="summary-row">
-
-                <span>
-                    The Great Adventure
-                </span>
-
-                <span>
-                    ₹399
-                </span>
-
-            </div>
-
-
-            <div class="summary-row">
-
-                <span>
-                    Quantity
-                </span>
-
-                <span>
-                    1
-                </span>
-
-            </div>
-
-
-            <hr>
-
-
-            <div class="summary-row">
-
-                <strong>
-                    Delivery
-                </strong>
-
-                <strong>
-                    Free
-                </strong>
-
-            </div>
-
-
-            <hr>
-
-
-            <div class="summary-total">
-
-                <strong>
-                    Total
-                </strong>
-
-                <strong>
-                    ₹399
-                </strong>
-
-            </div>
-
-
-        </div>
-
+        </form>
 
     </div>
-
 
 </section>
 
 
-
-<!-- Footer -->
-
 <footer>
 
-    <h3>
-        Online Book Store
-    </h3>
-
+    <h3>📚 Online Book Store</h3>
 
     <p>
         Your place to discover and purchase books online.
     </p>
-
-
-    <p>
-        © 2026 Online Book Store
-    </p>
-
 
     <p>
         © 2026 Online Book Store
@@ -274,20 +97,55 @@
 
 <script>
 
-    document.getElementById("checkout-form").addEventListener("submit", function(event) {
+    function loadCheckout() {
+
+        let data = localStorage.getItem("cartBook");
+
+        if (!data) {
+
+            document.getElementById("order-details").innerHTML =
+                "<p>Your cart is empty.</p>";
+
+            return;
+        }
+
+        let book = JSON.parse(data);
+
+        let total = Number(book.price) * Number(book.quantity);
+
+        document.getElementById("order-details").innerHTML =
+
+            "<p><strong>" + book.name + "</strong></p>" +
+
+            "<p>Author: " + book.author + "</p>" +
+
+            "<p>Price: ₹" + book.price + "</p>" +
+
+            "<p>Quantity: " + book.quantity + "</p>" +
+
+            "<p>Delivery: Free</p>" +
+
+            "<hr>" +
+
+            "<h3>Total: ₹" + total + "</h3>";
+    }
+
+
+    function placeOrder(event) {
 
         event.preventDefault();
 
-        localStorage.removeItem("cartBook");
-
         alert("Order placed successfully!");
 
-        window.location.href = "index.html";
+        localStorage.removeItem("cartBook");
 
-    });
+        window.location.href = "index.html";
+    }
+
+
+    window.onload = loadCheckout;
 
 </script>
-
 
 </body>
 

@@ -4,9 +4,8 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Shopping Cart - Online Book Store</title>
+    <title>Shopping Cart</title>
 
     <link rel="stylesheet" href="css/style.css">
 
@@ -16,7 +15,6 @@
 
 <body>
 
-
 <header>
 
     <div class="logo">
@@ -24,27 +22,9 @@
     </div>
 
     <nav>
-
-        <a href="index.html">
-            Home
-        </a>
-
-        <a href="book.html">
-            Books
-        </a>
-
-        <a href="index.html#categories">
-            Categories
-        </a>
-
-        <a href="cart.html">
-            Cart 🛒
-        </a>
-
-        <a href="index.html#about">
-            About
-        </a>
-
+        <a href="index.html">Home</a>
+        <a href="php/book.php">Books</a>
+        <a href="cart.html">Cart 🛒</a>
     </nav>
 
 </header>
@@ -52,9 +32,7 @@
 
 <section class="cart-page">
 
-    <h1>
-        Shopping Cart
-    </h1>
+    <h1>Shopping Cart</h1>
 
     <p>
         Review the books you have selected.
@@ -63,8 +41,7 @@
 
     <div class="cart-container">
 
-        <div class="cart-item" id="cart-item">
-
+        <div class="cart-item">
 
             <div
                     class="cart-book-image"
@@ -78,18 +55,18 @@
             <div class="cart-book-info">
 
                 <h3 id="cart-book-name">
-                    The Great Adventure
+                    Book
                 </h3>
 
                 <p id="cart-book-author">
-                    John Smith
+                    Author
                 </p>
 
                 <p
                         class="cart-price"
                         id="cart-book-price">
 
-                    ₹399
+                    ₹0
 
                 </p>
 
@@ -120,7 +97,6 @@
 
             </button>
 
-
         </div>
 
     </div>
@@ -132,45 +108,31 @@
             Order Summary
         </h2>
 
-
         <p>
-
             Subtotal:
-
             <strong id="cart-total">
-                ₹399
+                ₹0
             </strong>
-
         </p>
 
-
         <p>
-
             Delivery:
-
             <strong>
                 Free
             </strong>
-
         </p>
-
 
         <hr>
 
-
         <h3>
-
             Total:
-
             <span id="final-total">
-                ₹399
+                ₹0
             </span>
-
         </h3>
 
-
         <a
-                href="checkout.html"
+                href="php/checkout.php"
                 class="checkout-btn">
 
             Proceed to Checkout
@@ -178,7 +140,6 @@
         </a>
 
     </div>
-
 
 </section>
 
@@ -194,17 +155,10 @@
     </p>
 
     <p>
-        <a href="index.html">Home</a> |
-        <a href="book.html">Books</a> |
-        <a href="cart.html">Cart</a>
+        © 2026 Online Book Store
     </p>
 
-    <small>
-        © 2026 Online Book Store
-    </small>
-
 </footer>
-
 
 </body>
 

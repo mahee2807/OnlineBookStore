@@ -4,12 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b9a1f07-8dde-42e4-82d0-1fca380d088f" name="Changes" comment="final frontend changes done">
-      <change afterPath="$PROJECT_DIR$/php/db.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/php/login.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/php/register-form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/php/register.php" afterDir="false" />
+    <list default="true" id="4b9a1f07-8dde-42e4-82d0-1fca380d088f" name="Changes" comment="we created login and register form">
+      <change afterPath="$PROJECT_DIR$/php/book-details.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/book.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/books.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/checkout.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/place-order.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/book-details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/cart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkout.html" beforeDir="false" afterPath="$PROJECT_DIR$/checkout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/db.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,14 +68,18 @@
     "kotlin-language-version-configured": "true",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.jshint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.jshint": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\dhrut\IdeaProjects\OnlineBookStore\css" />
+      <recent name="C:\Users\dhrut\IdeaProjects\OnlineBookStore\php" />
       <recent name="C:\Users\mahee\IdeaProjects\OnlineBookStore" />
     </key>
   </component>
@@ -176,6 +188,7 @@
     <MESSAGE value="book detail added with home page" />
     <MESSAGE value="frontend is done" />
     <MESSAGE value="final frontend changes done" />
-    <option name="LAST_COMMIT_MESSAGE" value="final frontend changes done" />
+    <MESSAGE value="we created login and register form" />
+    <option name="LAST_COMMIT_MESSAGE" value="we created login and register form" />
   </component>
 </project>

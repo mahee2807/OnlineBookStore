@@ -3,9 +3,9 @@
 $conn = mysqli_connect("localhost", "root", "", "book_store");
 
 if (!$conn) {
-    die("Database connection failed: " . mysqli_connect_error());
+    die("Database connection failed");
 }
 
-echo "Database Connected Successfully!";
+mysqli_set_charset($conn, "utf8mb4");
 
 ?>
