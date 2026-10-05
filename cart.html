@@ -5,11 +5,11 @@
 
     <meta charset="UTF-8">
 
-    <title>Shopping Cart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shopping Cart - Online Book Store</title>
 
     <link rel="stylesheet" href="css/style.css">
-
-    <script src="js/cart.js"></script>
 
 </head>
 
@@ -22,9 +22,13 @@
     </div>
 
     <nav>
+
         <a href="index.html">Home</a>
+
         <a href="php/book.php">Books</a>
+
         <a href="cart.html">Cart 🛒</a>
+
     </nav>
 
 </header>
@@ -34,7 +38,7 @@
 
     <h1>Shopping Cart</h1>
 
-    <p>
+    <p class="cart-intro">
         Review the books you have selected.
     </p>
 
@@ -46,9 +50,7 @@
             <div
                     class="cart-book-image"
                     id="cart-book-image">
-
                 📖
-
             </div>
 
 
@@ -65,9 +67,7 @@
                 <p
                         class="cart-price"
                         id="cart-book-price">
-
                     ₹0
-
                 </p>
 
             </div>
@@ -83,8 +83,7 @@
                         type="number"
                         id="quantity"
                         value="1"
-                        min="1"
-                        onchange="updateTotal()">
+                        min="1">
 
             </div>
 
@@ -104,35 +103,27 @@
 
     <div class="cart-summary">
 
-        <h2>
-            Order Summary
-        </h2>
+        <h2>Order Summary</h2>
 
         <p>
             Subtotal:
-            <strong id="cart-total">
-                ₹0
-            </strong>
+            <strong id="cart-total">₹0</strong>
         </p>
 
         <p>
             Delivery:
-            <strong>
-                Free
-            </strong>
+            <strong>Free</strong>
         </p>
 
         <hr>
 
         <h3>
             Total:
-            <span id="final-total">
-                ₹0
-            </span>
+            <span id="final-total">₹0</span>
         </h3>
 
         <a
-                href="php/checkout.php"
+                href="checkout.html"
                 class="checkout-btn">
 
             Proceed to Checkout
@@ -159,6 +150,115 @@
     </p>
 
 </footer>
+
+
+<script>
+
+    function loadCart() {
+
+        let data = localStorage.getItem("cartBook");
+
+        console.log("Cart data:", data);
+
+        if (data === null) {
+
+            console.log("No cart data found.");
+
+            return;
+
+        }
+
+
+        let book = JSON.parse(data);
+
+        console.log("Book:", book);
+
+
+        document.getElementById("cart-book-name").innerText =
+            book.name;
+
+        document.getElementById("cart-book-author").innerText =
+            book.author;
+
+        document.getElementById("cart-book-price").innerText =
+            "₹" + Number(book.price);
+
+        document.getElementById("cart-book-image").innerText =
+            book.image;
+
+
+        document.getElementById("quantity").value =
+            book.quantity;
+
+
+        updateTotal();
+
+    }
+
+
+    function updateTotal() {
+
+        let data = localStorage.getItem("cartBook");
+
+        if (data === null) {
+            return;
+        }
+
+
+        let book = JSON.parse(data);
+
+        let quantity =
+            Number(document.getElementById("quantity").value);
+
+
+        if (quantity < 1) {
+
+            quantity = 1;
+
+            document.getElementById("quantity").value = 1;
+
+        }
+
+
+        let total =
+            Number(book.price) * quantity;
+
+
+        document.getElementById("cart-total").innerText =
+            "₹" + total;
+
+        document.getElementById("final-total").innerText =
+            "₹" + total;
+
+
+        book.quantity = quantity;
+
+        localStorage.setItem(
+            "cartBook",
+            JSON.stringify(book)
+        );
+
+    }
+
+
+    function removeFromCart() {
+
+        localStorage.removeItem("cartBook");
+
+        window.location.reload();
+
+    }
+
+
+    document
+        .getElementById("quantity")
+        .addEventListener("change", updateTotal);
+
+
+    window.addEventListener("load", loadCart);
+
+</script>
+
 
 </body>
 

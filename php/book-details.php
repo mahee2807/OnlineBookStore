@@ -2,33 +2,13 @@
 
 include "db.php";
 
-/* Check if book ID exists */
-if (!isset($_GET["id"]) || !is_numeric($_GET["id"])) {
-    die("Invalid book ID.");
-}
+$id = $_GET["id"];
 
-$book_id = (int) $_GET["id"];
+$sql = "SELECT * FROM books WHERE id = $id";
 
-/* Get book from database */
-$sql = "SELECT * FROM books WHERE id = ?";
-$stmt = mysqli_prepare($conn, $sql);
-
-if (!$stmt) {
-    die("Database error: " . mysqli_error($conn));
-}
-
-mysqli_stmt_bind_param($stmt, "i", $book_id);
-mysqli_stmt_execute($stmt);
-
-$result = mysqli_stmt_get_result($stmt);
-
-if (mysqli_num_rows($result) == 0) {
-    die("Book not found.");
-}
+$result = mysqli_query($conn, $sql);
 
 $book = mysqli_fetch_assoc($result);
-
-mysqli_stmt_close($stmt);
 
 ?>
 
@@ -39,21 +19,15 @@ mysqli_stmt_close($stmt);
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
     <title>
         <?php echo htmlspecialchars($book["title"]); ?>
-        - Online Book Store
     </title>
 
     <link rel="stylesheet" href="../css/style.css">
 
 </head>
 
-
 <body>
-
 
 <header>
 
@@ -80,72 +54,73 @@ mysqli_stmt_close($stmt);
 </header>
 
 
-<section class="book-details-page">
+<section class="details">
 
-
-    <div class="book-details">
-
-
-        <div class="book-img">
-
-            📖
-
-        </div>
-
-
-        <div class="book-info">
-
-
-            <p class="small-title">
-                BOOK DETAILS
-            </p>
-
-
-            <h1>
-                <?php echo htmlspecialchars($book["title"]); ?>
-            </h1>
-
-
-            <h3>
-                Author:
-                <?php echo htmlspecialchars($book["author"]); ?>
-            </h3>
-
-
-            <h2>
-                ₹<?php echo number_format((float)$book["price"], 2); ?>
-            </h2>
-
-
-            <?php if (isset($book["description"]) && $book["description"] != "") { ?>
-
-                <p>
-                    <?php echo htmlspecialchars($book["description"]); ?>
-                </p>
-
-            <?php } else { ?>
-
-                <p>
-                    Discover this book from our online collection.
-                </p>
-
-            <?php } ?>
-
-
-            <button
-                type="button"
-                class="small-btn"
-                onclick="addToCart()"
-            >
-                Add to Cart 🛒
-            </button>
-
-
-        </div>
-
-
+    <div class="details-image">
+        📖
     </div>
 
+
+    <div class="details-info">
+
+        <h1>
+            <?php echo htmlspecialchars($book["title"]); ?>
+        </h1>
+
+
+        <p>
+
+            <strong>Author:</strong>
+
+            <?php echo htmlspecialchars($book["author"]); ?>
+
+        </p>
+
+
+        <p class="details-price">
+
+            ₹<?php echo $book["price"]; ?>
+
+        </p>
+
+
+        <p>
+
+            <?php echo htmlspecialchars($book["description"]); ?>
+
+        </p>
+
+
+        <p>
+
+            <strong>Category:</strong>
+
+            <?php echo htmlspecialchars($book["category"]); ?>
+
+        </p>
+
+
+        <p>
+
+            <strong>Stock:</strong>
+
+            <?php echo $book["stock"]; ?>
+
+        </p>
+
+
+        <br>
+
+
+        <button
+            class="btn"
+            id="add-cart-button">
+
+            Add to Cart
+
+        </button>
+
+    </div>
 
 </section>
 
@@ -169,97 +144,37 @@ mysqli_stmt_close($stmt);
 
 <script>
 
-/*
- * Book information from PHP
- */
+document
+    .getElementById("add-cart-button")
+    .addEventListener("click", function () {
 
-const book = {
+        let book = {
 
-    id: <?php echo (int)$book["id"]; ?>,
+            id: <?php echo (int)$book["id"]; ?>,
 
-    title:
-        <?php echo json_encode($book["title"]); ?>,
+            name: <?php echo json_encode($book["title"]); ?>,
 
-    author:
-        <?php echo json_encode($book["author"]); ?>,
+            author: <?php echo json_encode($book["author"]); ?>,
 
-    price:
-        <?php echo (float)$book["price"]; ?>,
+            price: <?php echo (float)$book["price"]; ?>,
 
-    quantity: 1
-
-};
-
-
-/*
- * Add book to cart
- */
-
-function addToCart() {
-
-    let cart =
-        JSON.parse(
-            localStorage.getItem("cart")
-        ) || [];
-
-
-    /*
-     * Check if this book is already
-     * in the cart
-     */
-
-    const existingBook =
-        cart.find(function(item) {
-
-            return Number(item.id) === Number(book.id);
-
-        });
-
-
-    if (existingBook) {
-
-        existingBook.quantity =
-            Number(existingBook.quantity || 1) + 1;
-
-    } else {
-
-        cart.push({
-
-            id: Number(book.id),
-
-            title: book.title,
-
-            author: book.author,
-
-            price: Number(book.price),
+            image: "📖",
 
             quantity: 1
 
-        });
-
-    }
+        };
 
 
-    /*
-     * Save cart
-     */
-
-    localStorage.setItem(
-        "cart",
-        JSON.stringify(cart)
-    );
+        localStorage.setItem(
+            "cartBook",
+            JSON.stringify(book)
+        );
 
 
-    alert("Book added to cart!");
+        window.location.href =
+            "../cart.html";
 
-
-    /*
-     * Go to cart
-     */
-
-    window.location.href = "../cart.html";
-
-}
+    });
 
 </script>
 

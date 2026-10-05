@@ -1,29 +1,135 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Register</title>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register - Online Book Store</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
 </head>
+
 <body>
 
-<h2>Register</h2>
+<header>
 
-<form action="register.php" method="POST">
+    <div class="logo">
+        📚 Online Book Store
+    </div>
 
-    <label>Name:</label>
-    <input type="text" name="name" required>
-    <br><br>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="book.php">Books</a>
+        <a href="../cart.html">Cart 🛒</a>
+        <a href="login-form.html">Login</a>
+        <a href="register-form.html">Register</a>
+    </nav>
 
-    <label>Email:</label>
-    <input type="email" name="email" required>
-    <br><br>
+</header>
 
-    <label>Password:</label>
-    <input type="password" name="password" required>
-    <br><br>
 
-    <button type="submit">Register</button>
+<section class="auth-page">
 
-</form>
+    <div class="auth-box">
+
+        <div class="auth-icon">
+            📖
+        </div>
+
+        <p class="small-title">
+            JOIN OUR BOOKSTORE
+        </p>
+
+        <h1>
+            Create Account
+        </h1>
+
+        <p class="auth-text">
+            Create an account and start exploring our books.
+        </p>
+
+
+        <form action="register.php" method="POST">
+
+            <label>
+                Full Name
+            </label>
+
+            <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter your full name"
+                    required>
+
+
+            <label>
+                Email
+            </label>
+
+            <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required>
+
+
+            <label>
+                Password
+            </label>
+
+            <input
+                    type="password"
+                    name="password"
+                    placeholder="Create a password"
+                    required>
+
+
+            <button
+                    type="submit"
+                    class="auth-btn">
+
+                Create Account
+
+            </button>
+
+        </form>
+
+
+        <p class="auth-bottom">
+
+            Already have an account?
+
+            <a href="login-form.html">
+                Login
+            </a>
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <h3>
+        📚 Online Book Store
+    </h3>
+
+    <p>
+        Your place to discover and purchase books online.
+    </p>
+
+    <small>
+        © 2026 Online Book Store
+    </small>
+
+</footer>
 
 </body>
+
 </html>

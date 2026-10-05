@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
     <meta charset="UTF-8">
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Checkout - Online Book Store</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="http://localhost/bookstore/css/style.css">
 
 </head>
 
@@ -20,9 +22,13 @@
     </div>
 
     <nav>
+
         <a href="index.html">Home</a>
+
         <a href="php/book.php">Books</a>
+
         <a href="cart.html">Cart 🛒</a>
+
     </nav>
 
 </header>
@@ -30,50 +36,245 @@
 
 <section class="checkout-page">
 
-    <h1>Checkout</h1>
+    <div class="checkout-heading">
 
-    <p>Enter your details to complete your order.</p>
+        <p class="small-title">
+            COMPLETE YOUR ORDER
+        </p>
 
+        <h1>
+            Checkout
+        </h1>
 
-    <div class="checkout-box">
+        <p>
+            Enter your delivery details and review your order.
+        </p>
 
-        <h2>Customer Information</h2>
-
-        <form onsubmit="placeOrder(event)">
-
-            <label>Full Name</label>
-            <input type="text" id="name" required>
-
-
-            <label>Email</label>
-            <input type="email" id="email" required>
+    </div>
 
 
-            <label>Phone Number</label>
-            <input type="text" id="phone" required>
+    <div class="checkout-container">
 
 
-            <label>Address</label>
-            <textarea id="address" required></textarea>
+        <!-- LEFT SIDE -->
+
+        <div class="customer-details">
+
+            <h2>
+                Delivery Information
+            </h2>
+
+            <p class="form-description">
+                Please enter your details below.
+            </p>
 
 
-            <label>City</label>
-            <input type="text" id="city" required>
+            <form id="checkout-form">
 
 
-            <label>Pincode</label>
-            <input type="text" id="pincode" required>
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Full Name
+                        </label>
+
+                        <input
+                                type="text"
+                                id="name"
+                                placeholder="Enter your full name"
+                                required>
+
+                    </div>
 
 
-            <h2>Order Summary</h2>
+                    <div class="form-group">
 
-            <div id="order-details"></div>
+                        <label for="email">
+                            Email
+                        </label>
 
-            <button type="submit" class="checkout-btn">
-                Place Order
-            </button>
+                        <input
+                                type="email"
+                                id="email"
+                                placeholder="Enter your email"
+                                required>
 
-        </form>
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Phone Number
+                        </label>
+
+                        <input
+                                type="tel"
+                                id="phone"
+                                placeholder="Enter your phone number"
+                                required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="city">
+                            City
+                        </label>
+
+                        <input
+                                type="text"
+                                id="city"
+                                placeholder="Enter your city"
+                                required>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="address">
+                        Delivery Address
+                    </label>
+
+                    <textarea
+                            id="address"
+                            rows="4"
+                            placeholder="Enter your complete address"
+                            required></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="pincode">
+                        Pincode
+                    </label>
+
+                    <input
+                            type="text"
+                            id="pincode"
+                            placeholder="Enter your pincode"
+                            required>
+
+                </div>
+
+
+                <button
+                        type="submit"
+                        class="place-order-btn">
+
+                    Place Order
+
+                </button>
+
+
+            </form>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+
+        <div class="checkout-summary">
+
+            <h2>
+                Order Summary
+            </h2>
+
+
+            <div class="summary-book">
+
+                <div class="summary-book-image">
+                    📖
+                </div>
+
+
+                <div>
+
+                    <h3 id="checkout-book-name">
+                        Loading book...
+                    </h3>
+
+                    <p>
+                        Quantity:
+                        <span id="checkout-quantity">
+                            1
+                        </span>
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="summary-details">
+
+                <div class="summary-row">
+
+                    <span>
+                        Book Price
+                    </span>
+
+                    <span id="checkout-book-price">
+                        ₹0
+                    </span>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Delivery
+                    </span>
+
+                    <span>
+                        Free
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <hr>
+
+
+            <div class="summary-total">
+
+                <span>
+                    Total
+                </span>
+
+                <strong id="checkout-total">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <div class="secure-message">
+
+                🔒 Secure Order
+
+                <small>
+                    Your order information is handled securely.
+                </small>
+
+            </div>
+
+        </div>
 
     </div>
 
@@ -82,7 +283,9 @@
 
 <footer>
 
-    <h3>📚 Online Book Store</h3>
+    <h3>
+        📚 Online Book Store
+    </h3>
 
     <p>
         Your place to discover and purchase books online.
@@ -97,53 +300,146 @@
 
 <script>
 
+    let bookData = localStorage.getItem("cartBook");
+
+
     function loadCheckout() {
 
-        let data = localStorage.getItem("cartBook");
+        if (bookData == null) {
 
-        if (!data) {
-
-            document.getElementById("order-details").innerHTML =
-                "<p>Your cart is empty.</p>";
+            document.getElementById("checkout-book-name").innerText =
+                "Your cart is empty";
 
             return;
+
         }
 
-        let book = JSON.parse(data);
 
-        let total = Number(book.price) * Number(book.quantity);
+        let book = JSON.parse(bookData);
 
-        document.getElementById("order-details").innerHTML =
 
-            "<p><strong>" + book.name + "</strong></p>" +
+        document.getElementById(
+            "checkout-book-name"
+        ).innerText = book.name;
 
-            "<p>Author: " + book.author + "</p>" +
 
-            "<p>Price: ₹" + book.price + "</p>" +
+        document.getElementById(
+            "checkout-book-price"
+        ).innerText = "₹" + Number(book.price);
 
-            "<p>Quantity: " + book.quantity + "</p>" +
 
-            "<p>Delivery: Free</p>" +
+        document.getElementById(
+            "checkout-quantity"
+        ).innerText = book.quantity;
 
-            "<hr>" +
 
-            "<h3>Total: ₹" + total + "</h3>";
+        let total =
+            Number(book.price) *
+            Number(book.quantity);
+
+
+        document.getElementById(
+            "checkout-total"
+        ).innerText = "₹" + total;
+
     }
 
 
-    function placeOrder(event) {
-
-        event.preventDefault();
-
-        alert("Order placed successfully!");
-
-        localStorage.removeItem("cartBook");
-
-        window.location.href = "index.html";
-    }
+    loadCheckout();
 
 
-    window.onload = loadCheckout;
+    document
+        .getElementById("checkout-form")
+        .addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+
+            if (bookData == null) {
+
+                alert("Your cart is empty.");
+
+                return;
+
+            }
+
+
+            let book = JSON.parse(bookData);
+
+
+            let formData = new FormData();
+
+
+            formData.append(
+                "book_id",
+                book.id
+            );
+
+
+            formData.append(
+                "quantity",
+                book.quantity
+            );
+
+
+            formData.append(
+                "price",
+                book.price
+            );
+
+
+            fetch("php/place-order.php", {
+
+                method: "POST",
+
+                body: formData
+
+            })
+
+
+                .then(response => response.text())
+
+
+                .then(result => {
+
+                    console.log(result);
+
+
+                    if (result.trim() === "success") {
+
+                        localStorage.removeItem("cartBook");
+
+
+                        alert(
+                            "Order placed successfully!"
+                        );
+
+
+                        window.location.href =
+                            "index.html";
+
+                    }
+
+                    else {
+
+                        alert(result);
+
+                    }
+
+                })
+
+
+                .catch(error => {
+
+                    console.log(error);
+
+                    alert(
+                        "Something went wrong. Please try again."
+                    );
+
+                });
+
+        });
 
 </script>
 

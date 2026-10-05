@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 include "db.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -13,9 +15,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
+
+        $user = mysqli_fetch_assoc($result);
+
+        $_SESSION["user_id"] = $user["id"];
+
         echo "Login successful!";
+
     } else {
+
         echo "Invalid email or password!";
+
     }
 }
 

@@ -5,6 +5,7 @@ include "db.php";
 $id = $_GET["id"];
 
 $sql = "SELECT * FROM books WHERE id = $id";
+
 $result = mysqli_query($conn, $sql);
 
 $book = mysqli_fetch_assoc($result);
@@ -12,118 +13,15 @@ $book = mysqli_fetch_assoc($result);
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
     <meta charset="UTF-8">
 
-    <title>Book Details</title>
+    <title>Book Details - Online Book Store</title>
 
-    <style>
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #f8f6f2;
-            margin: 0;
-            color: #333;
-        }
-
-        header {
-            background: white;
-            padding: 20px 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 8px #ddd;
-        }
-
-        .logo {
-            font-size: 22px;
-            font-weight: bold;
-        }
-
-        nav {
-            display: flex;
-            gap: 25px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-        }
-
-        .details {
-            max-width: 900px;
-            margin: 70px auto;
-            background: white;
-            padding: 40px;
-            display: flex;
-            gap: 50px;
-            align-items: center;
-            box-shadow: 0 3px 10px #ddd;
-        }
-
-        .book-img {
-            width: 300px;
-            height: 400px;
-            background: #eee5dc;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 100px;
-        }
-
-        .info {
-            flex: 1;
-        }
-
-        .info h1 {
-            font-size: 38px;
-        }
-
-        .price {
-            color: #8b5e3c;
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .info p {
-            line-height: 1.6;
-        }
-
-        .btn {
-            display: inline-block;
-            background: #8b5e3c;
-            color: white;
-            padding: 12px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 30px;
-        }
-
-        @media (max-width: 800px) {
-
-            .details {
-                margin: 30px 20px;
-                flex-direction: column;
-            }
-
-            header {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-        }
-
-    </style>
+    <link rel="stylesheet" href="../css/style.css">
 
 </head>
 
@@ -136,63 +34,101 @@ $book = mysqli_fetch_assoc($result);
     </div>
 
     <nav>
-        <a href="../index.html">Home</a>
-        <a href="book.php">Books</a>
-        <a href="../cart.html">Cart 🛒</a>
+
+        <a href="../index.html">
+            Home
+        </a>
+
+        <a href="book.php">
+            Books
+        </a>
+
+        <a href="../cart.html">
+            Cart 🛒
+        </a>
+
     </nav>
 
 </header>
 
 
-<div class="details">
+<section class="details">
 
-    <div class="book-img">
+    <div class="details-image">
         📖
     </div>
 
-    <div class="info">
+
+    <div class="details-info">
 
         <h1>
-            <?php echo $book["title"]; ?>
+            <?php echo htmlspecialchars($book["title"]); ?>
         </h1>
 
+
         <p>
+
             <strong>Author:</strong>
-            <?php echo $book["author"]; ?>
+
+            <?php echo htmlspecialchars($book["author"]); ?>
+
         </p>
 
-        <p class="price">
+
+        <p class="details-price">
+
             ₹<?php echo $book["price"]; ?>
+
         </p>
 
-        <p>
-            <?php echo $book["description"]; ?>
-        </p>
 
         <p>
+
+            <?php echo htmlspecialchars($book["description"]); ?>
+
+        </p>
+
+
+        <p>
+
             <strong>Category:</strong>
-            <?php echo $book["category"]; ?>
+
+            <?php echo htmlspecialchars($book["category"]); ?>
+
         </p>
 
+
         <p>
+
             <strong>Stock:</strong>
+
             <?php echo $book["stock"]; ?>
+
         </p>
+
 
         <br>
 
-        <a href="book.php" class="btn">
-            Back to Books
-        </a>
+
+        <button
+                class="btn"
+                onclick="addToCart()">
+
+            Add to Cart
+
+        </button>
+
 
     </div>
 
-</div>
+</section>
 
 
 <footer>
 
-    <h3>📚 Online Book Store</h3>
+    <h3>
+        📚 Online Book Store
+    </h3>
 
     <p>
         Your place to discover and purchase books online.
@@ -203,6 +139,41 @@ $book = mysqli_fetch_assoc($result);
     </p>
 
 </footer>
+
+
+<script>
+
+    function addToCart() {
+
+        let book = {
+
+            id: <?php echo json_encode($book["id"]); ?>,
+
+        name: <?php echo json_encode($book["title"]); ?>,
+
+        author: <?php echo json_encode($book["author"]); ?>,
+
+        price: <?php echo json_encode($book["price"]); ?>,
+
+        image: "📖",
+
+            quantity: 1
+
+    };
+
+
+        localStorage.setItem(
+            "cartBook",
+            JSON.stringify(book)
+        );
+
+
+        window.location.href = "../cart.html";
+
+    }
+
+</script>
+
 
 </body>
 

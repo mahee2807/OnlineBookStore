@@ -1,25 +1,124 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Login</title>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login - Online Book Store</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
 </head>
+
 <body>
 
-<h2>Login</h2>
+<header>
 
-<form action="login.php" method="POST">
+    <div class="logo">
+        📚 Online Book Store
+    </div>
 
-    <label>Email:</label>
-    <input type="email" name="email" required>
-    <br><br>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="book.php">Books</a>
+        <a href="../cart.html">Cart 🛒</a>
+        <a href="login-form.html">Login</a>
+        <a href="register-form.html">Register</a>
+    </nav>
 
-    <label>Password:</label>
-    <input type="password" name="password" required>
-    <br><br>
+</header>
 
-    <button type="submit">Login</button>
 
-</form>
+<section class="auth-page">
+
+    <div class="auth-box">
+
+        <div class="auth-icon">
+            📚
+        </div>
+
+        <p class="small-title">
+            WELCOME BACK
+        </p>
+
+        <h1>
+            Login
+        </h1>
+
+        <p class="auth-text">
+            Login to continue shopping for your favorite books.
+        </p>
+
+
+        <form action="login.php" method="POST">
+
+            <label>
+                Email
+            </label>
+
+            <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required>
+
+
+            <label>
+                Password
+            </label>
+
+            <input
+                    type="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    required>
+
+
+            <button
+                    type="submit"
+                    class="auth-btn">
+
+                Login
+
+            </button>
+
+        </form>
+
+
+        <p class="auth-bottom">
+
+            Don't have an account?
+
+            <a href="register-form.html">
+                Register
+            </a>
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <h3>
+        📚 Online Book Store
+    </h3>
+
+    <p>
+        Your place to discover and purchase books online.
+    </p>
+
+    <small>
+        © 2026 Online Book Store
+    </small>
+
+</footer>
 
 </body>
+
 </html>

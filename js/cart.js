@@ -2,7 +2,7 @@ function loadCart() {
 
     let data = localStorage.getItem("cartBook");
 
-    if (!data) {
+    if (data == null) {
         return;
     }
 
@@ -11,6 +11,7 @@ function loadCart() {
     document.getElementById("cart-book-name").innerText = book.name;
     document.getElementById("cart-book-author").innerText = book.author;
     document.getElementById("cart-book-price").innerText = "₹" + book.price;
+    document.getElementById("cart-book-image").innerText = book.image;
 
     document.getElementById("quantity").value = book.quantity;
 
@@ -22,7 +23,7 @@ function updateTotal() {
 
     let data = localStorage.getItem("cartBook");
 
-    if (!data) {
+    if (data == null) {
         return;
     }
 
@@ -35,14 +36,20 @@ function updateTotal() {
         document.getElementById("quantity").value = 1;
     }
 
-    book.quantity = quantity;
-
-    localStorage.setItem("cartBook", JSON.stringify(book));
-
     let total = Number(book.price) * quantity;
 
-    document.getElementById("cart-total").innerText = "₹" + total;
-    document.getElementById("final-total").innerText = "₹" + total;
+    document.getElementById("cart-total").innerText =
+        "₹" + total;
+
+    document.getElementById("final-total").innerText =
+        "₹" + total;
+
+    book.quantity = quantity;
+
+    localStorage.setItem(
+        "cartBook",
+        JSON.stringify(book)
+    );
 }
 
 
@@ -54,4 +61,10 @@ function removeFromCart() {
 }
 
 
-window.onload = loadCart;
+window.onload = function() {
+
+    if (document.getElementById("quantity")) {
+        loadCart();
+    }
+
+};
